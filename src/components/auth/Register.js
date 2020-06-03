@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { setAlert } from "../../actions/alert";
 import "../../css/auth.css";
@@ -112,6 +113,10 @@ const Register = ({ setAlert }) => {
       </p>
     </section>
   );
+};
+
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
 };
 
 export default connect(null, { setAlert })(Register);
