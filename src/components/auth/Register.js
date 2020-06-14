@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import axios from "axios";
 import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 import "../../css/auth.css";
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,33 +28,13 @@ const Register = ({ setAlert }) => {
     if (password !== confirm_password) {
       setAlert("Password does not match", "danger");
     } else {
-      const newUser = {
-        name,
-        email,
-        password,
-      };
-
-      try {
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        };
-
-        const body = JSON.stringify(newUser);
-
-        const res = await axios.post(
-          "http://localhost:5050/api/v1/users/register",
-          body,
-          config
-        );
-        console.log(res.data);
-      } catch (error) {
-        console.error(error.response.data);
-      }
-      // console.log(formData);
+      register({ name, email, password });
     }
   };
+
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />
+  }
 
   return (
     <section className="container wrapper">
@@ -80,6 +60,7 @@ const Register = ({ setAlert }) => {
             name="email"
             onChange={(event) => onChange(event)}
             value={email}
+            required
           />
           <small className="form-text">
             This site uses Gravatar, so if you want a profile image, use a
@@ -117,6 +98,12 @@ const Register = ({ setAlert }) => {
 
 Register.propTypes = {
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
 };
 
-export default connect(null, { setAlert })(Register);
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { setAlert, register })(Register);
