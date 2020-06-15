@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:5050/api/v1'
+export const BASE_URL = "http://localhost:5050/api/v1";
 
 export const SET_ALERT = "SET_ALERT";
 export const REVOME_ALERT = "REVOME_ALERT";
@@ -10,4 +10,6 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
 export const USER_LOADED = "USER_LOADED";
-export const AUTH_ERROR = "AUTH_ERROR"
+export const AUTH_ERROR = "AUTH_ERROR";
+
+export const LOGOUT = "LOGOUT";

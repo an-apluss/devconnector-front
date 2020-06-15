@@ -50,7 +50,7 @@ const Login = ({ login, isAuthenticated }) => {
             type="password"
             placeholder="Password"
             name="password"
-            minlength="6"
+            minLength="6"
             onChange={(event) => onChange(event)}
             required
           />
