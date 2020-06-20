@@ -33,14 +33,14 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/dashboard" />
+    return <Redirect to="/dashboard" />;
   }
 
   return (
     <section className="container wrapper">
       <h1 className="large text-primary">Sign Up</h1>
       <p className="lead">
-        <i className="fas fa-user"></i>Create Your Account
+        <i className="fas fa-user"></i> Create Your Account
       </p>
       <form className="form" onSubmit={(event) => onSubmit(event)}>
         <div className="form-group">

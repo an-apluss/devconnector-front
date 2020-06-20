@@ -25,7 +25,7 @@ const Login = ({ login, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/dashboard" />
+    return <Redirect to="/dashboard" />;
   }
 
   return (
@@ -33,7 +33,7 @@ const Login = ({ login, isAuthenticated }) => {
       {/* <div className="alert alert-danger">Invalid Credentials</div> */}
       <h1 className="large text-primary">Sign In</h1>
       <p className="lead">
-        <i className="fas fa-user"></i>Sign into your account
+        <i className="fas fa-user"></i> Sign into your account
       </p>
       <form onSubmit={(event) => onSubmit(event)} className="form">
         <div className="form-group">
