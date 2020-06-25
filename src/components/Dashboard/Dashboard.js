@@ -34,7 +34,7 @@ const Dashboard = ({
                 the button below
               </p>
               <Link to="/create-profile" className="btn btn-primary m-1">
-                <i class="fa fa-plus" aria-hidden="true"></i> Create Profile
+                <i className="fa fa-plus" aria-hidden="true"></i> Create Profile
               </Link>
             </Fragment>
           ) : (
