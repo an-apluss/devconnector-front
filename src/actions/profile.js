@@ -38,7 +38,7 @@ export const createProfile = (formData, history, edit = false) => async (
       },
     };
 
-    const res = await axios.post(`${BASE_URL}/profile`, config);
+    const res = await axios.post(`${BASE_URL}/profile`, formData, config);
 
     dispatch({
       type: GET_PROFILE,
@@ -51,13 +51,8 @@ export const createProfile = (formData, history, edit = false) => async (
       history.push("/dashboard");
     }
   } catch (error) {
-    const errors = error.response.data.errors;
-    console.log(errors)
-    if (errors) {
-      // Fetch the first error message in errors array
-      dispatch(setAlert(errors[0].msg, "danger"));
-    }
-
+    // console.log('create-p', error.response)
+    // return
     dispatch({
       type: PROFILE_ERROR,
       payload: {
@@ -65,5 +60,12 @@ export const createProfile = (formData, history, edit = false) => async (
         status: error.response.status,
       },
     });
+
+    const errors = error.response.data.errors;
+    console.log(errors[0].msg)
+    if (errors) {
+      // Fetch the first error message in errors array
+      dispatch(setAlert(errors[0].msg, "danger"));
+    }
   }
 };

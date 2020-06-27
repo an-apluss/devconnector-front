@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { getProfile } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
+import { DashboardActions } from './DashboardActions'
 
 const Dashboard = ({
   auth: { user },
@@ -38,7 +39,9 @@ const Dashboard = ({
               </Link>
             </Fragment>
           ) : (
-            <Fragment>Has</Fragment>
+            <Fragment>
+              <DashboardActions />
+            </Fragment>
           )}
         </Fragment>
       )}
