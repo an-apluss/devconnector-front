@@ -2,10 +2,12 @@ import axios from "axios";
 import {
   BASE_URL,
   GET_PROFILE,
+  GET_PROFILES,
   PROFILE_ERROR,
   UPDATE_PROFILE,
   DELETED_ACCOUNT,
   CLEAR_PROFILE,
+  GET_REPOS
 } from "./type";
 import setAuthToken from "../utils/setAuthToken";
 import { setAlert } from "../actions/alert";
@@ -21,6 +23,67 @@ export const getProfile = () => async (dispatch) => {
 
     dispatch({
       type: GET_PROFILE,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+export const getProfiles = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_PROFILE
+  })
+
+  try {
+    const res = await axios.get(`${BASE_URL}/profile/m`);
+
+    dispatch({
+      type: GET_PROFILES,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+export const getProfileByID = (user_id) => async (dispatch) => {
+  try {
+    const res = await axios.get(`${BASE_URL}/profile/user/${user_id}`);
+
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: {
+        msg: error.response.statusText,
+        status: error.response.status,
+      },
+    });
+  }
+};
+
+export const getGithubRepos = (username) => async (dispatch) => {
+  try {
+    const res = await axios.get(`${BASE_URL}/profile/github/${username}`);
+
+    dispatch({
+      type: GET_REPOS,
       payload: res.data,
     });
   } catch (error) {
