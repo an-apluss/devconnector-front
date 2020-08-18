@@ -42,7 +42,7 @@ export const getProfiles = () => async (dispatch) => {
   })
 
   try {
-    const res = await axios.get(`${BASE_URL}/profile/m`);
+    const res = await axios.get(`${BASE_URL}/profile`);
 
     dispatch({
       type: GET_PROFILES,
