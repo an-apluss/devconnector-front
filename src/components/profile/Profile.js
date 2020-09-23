@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import Spinner from "../layout/Spinner";
-import ProfileTop from './ProfileTop'
-import ProfileAbout from './ProfileAbout'
+import ProfileTop from "./ProfileTop";
+import ProfileAbout from "./ProfileAbout";
+import ProfileExperience from "./ProfileExperience";
 import { getProfileByID } from "../../actions/profile";
 
 const Profile = ({
@@ -36,33 +37,7 @@ const Profile = ({
           <div className="profile-grid my-1">
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
-            <div className="profile-exp bg-white p-2">
-              <h2 className="text-primary">Experiences</h2>
-              <div>
-                <h3>Microsoft</h3>
-                <p>Oct 2011 - Current</p>
-                <p>
-                  <strong>Position: </strong>Senior Developer
-                </p>
-                <p>
-                  <strong>Description: </strong>Lorem ipsum dolor sit, amet
-                  consectetur adipisicing elit. Architecto est beatae omnis,
-                  voluptatibus quas harum.
-                </p>
-              </div>
-              <div>
-                <h3>Sun Microsystems</h3>
-                <p>Oct 2004 - Nov 2010</p>
-                <p>
-                  <strong>Position: </strong>Systems Admin
-                </p>
-                <p>
-                  <strong>Description: </strong>Lorem ipsum dolor sit, amet
-                  consectetur adipisicing elit. Architecto est beatae omnis,
-                  voluptatibus quas harum.
-                </p>
-              </div>
-            </div>
+            <ProfileExperience profile={profile} />
             <div className="profile-edu bg-white p-2">
               <h2 className="text-primary">Education</h2>
               <div>
