@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -15,11 +15,11 @@ const ProfileItem = ({
     <div className="profile bg-light">
       <img className="round-img" src={avatar} alt="developer profile" />
       <div>
-        <h2>{name}</h2>
+        <h2 className="first-letter-capitalize">{name}</h2>
         <p>
-          {status} {company && <span> at {company}</span>}
+          <span className="first-letter-capitalize">{status}</span> {company && <Fragment> at <span className="first-letter-capitalize">{company}</span></Fragment>}
         </p>
-        <p>{location}</p>
+        <p className="first-letter-capitalize">{location}</p>
         <Link to={`/profile/${_id}`} className="btn btn-primary">
           View Profile
         </Link>
