@@ -12,25 +12,23 @@ const ProfileAbout = ({
     <div className="profile-about bg-light p-2">
       {bio && (
         <Fragment>
-          <h2 className="text primary">{name.split(" ")[0]}'s Bio</h2>
+          <h2 className="text primary" style={{ textTransform: "capitalize" }}>
+            {name.split(" ")[0]}'s Bio
+          </h2>
           <p>{bio}</p>
           <div className="line"></div>
         </Fragment>
       )}
       <h2 className="text-primary">Skill Set</h2>
       <div className="skills">
-        <div className="p-1">
-          <i className="fas fa-check"></i> HTML
-        </div>
-        <div className="p-1">
-          <i className="fas fa-check"></i> CSS
-        </div>
-        <div className="p-1">
-          <i className="fas fa-check"></i> JavaScript
-        </div>
-        <div className="p-1">
-          <i className="fas fa-check"></i> Python
-        </div>
+        {skills &&
+          skills.map((skill) => {
+            return (
+              <div className="p-1">
+                <i className="fas fa-check"></i> {skill}
+              </div>
+            );
+          })}
       </div>
     </div>
   );
