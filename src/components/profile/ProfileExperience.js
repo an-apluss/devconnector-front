@@ -19,11 +19,11 @@ const ProfileExperience = ({ profile: { experience } }) => {
                   <Moment format="MMM YYYY">{exp.to}</Moment>
                 )}
               </p>
-              <p>
+              <p className="first-letter-capitalize">
                 <strong>Position: </strong>
                 {exp.title}
               </p>
-              <p>
+              <p className="first-letter-capitalize">
                 <strong>Description: </strong>
                 {exp.description && <span>{exp.description}</span>}
               </p>
