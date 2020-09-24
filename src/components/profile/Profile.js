@@ -6,6 +6,7 @@ import Spinner from "../layout/Spinner";
 import ProfileTop from "./ProfileTop";
 import ProfileAbout from "./ProfileAbout";
 import ProfileExperience from "./ProfileExperience";
+import ProfileEducation from "./ProfileEducation";
 import { getProfileByID } from "../../actions/profile";
 
 const Profile = ({
@@ -38,24 +39,8 @@ const Profile = ({
             <ProfileTop profile={profile} />
             <ProfileAbout profile={profile} />
             <ProfileExperience profile={profile} />
-            <div className="profile-edu bg-white p-2">
-              <h2 className="text-primary">Education</h2>
-              <div>
-                <h3>University Of Washington</h3>
-                <p>Sep 1993 - June 1999</p>
-                <p>
-                  <strong>Degree: </strong>Masters
-                </p>
-                <p>
-                  <strong>Field Of Study: </strong>Computer Science
-                </p>
-                <p>
-                  <strong>Description: </strong>Lorem ipsum dolor sit, amet
-                  consectetur adipisicing elit. Architecto est beatae omnis,
-                  voluptatibus quas harum.
-                </p>
-              </div>
-            </div>
+            <ProfileEducation profile={profile} />
+            
             <div className="profile-github">
               <h2 className="text-primary my-1">
                 <i className="fab fa-github"></i> Github Repos
@@ -101,7 +86,7 @@ const Profile = ({
               <div className="repo bg-white my-1 p-1">
                 <div>
                   <h4>
-                    <Link href="#!">Repo Three</Link>
+                    <Link to="#!">Repo Three</Link>
                   </h4>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
