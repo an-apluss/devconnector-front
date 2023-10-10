@@ -27,6 +27,7 @@ const EditProfile = ({
       instagram: loading || !profile.social ? "" : profile.social.instagram,
       youtube: loading || !profile.social ? "" : profile.social.youtube,
     });
+    // eslint-disable-next-line
   }, [getProfile, loading]);
 
   const [formData, setFormData] = useState({
