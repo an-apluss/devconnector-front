@@ -1,4 +1,4 @@
-export const BASE_URL = process.env.NODE_ENV === 'production' ? "https://connectdev-api.herokuapp.com/api/v1" : "http://localhost:5050/api/v1"
+export const BASE_URL = process.env.NODE_ENV === 'production' ? "https://connectdev-api.onrender.com/api/v1" : "http://localhost:5050/api/v1"
 
 export const SET_ALERT = "SET_ALERT";
 export const REVOME_ALERT = "REVOME_ALERT";
