@@ -2,6 +2,7 @@ import React, { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Helmet } from "react-helmet-async";
 import { getProfile, deleteAccount } from "../../actions/profile";
 import Spinner from "../layout/Spinner";
 import { DashboardActions } from "./DashboardActions";
@@ -20,6 +21,10 @@ const Dashboard = ({
 
   return (
     <section className="container">
+      <Helmet>
+        <title>Devconnector | Dashboard</title>
+      </Helmet>
+
       {loading && profile === null ? (
         <Spinner />
       ) : (

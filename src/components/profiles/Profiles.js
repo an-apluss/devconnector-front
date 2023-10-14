@@ -1,4 +1,5 @@
 import React, { useEffect, Fragment } from "react";
+import { Helmet} from "react-helmet-async";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
@@ -12,6 +13,10 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 
   return (
     <section className="container">
+      <Helmet>
+        <title>Devconnector | Profiles</title>
+      </Helmet>
+
       {loading ? (
         <Spinner />
       ) : (

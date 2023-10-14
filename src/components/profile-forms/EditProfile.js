@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Helmet } from "react-helmet-async";
 import { createProfile, getProfile } from "../../actions/profile";
 
 const EditProfile = ({
@@ -72,6 +73,10 @@ const EditProfile = ({
 
   return (
     <section className="container">
+      <Helmet>
+        <title>Devconnector | Profile</title>
+      </Helmet>
+
       <h1 className="large text-primary">Edit Your Profile</h1>
       <p className="lead">
         <i className="fas fa-user"></i> Let's get some information to make your

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { addEducation } from "../../actions/profile";
 import PropTypes from "prop-types";
+import { Helmet } from "react-helmet-async";
+import { addEducation } from "../../actions/profile";
 
 const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
@@ -37,6 +38,10 @@ const AddEducation = ({ addEducation, history }) => {
 
   return (
     <section className="container">
+      <Helmet>
+        <title>Devconnector | Profile</title>
+      </Helmet>
+      
       <h1 className="large text-primary">Add Your Education</h1>
       <p className="lead">
         <i className="fas fa-graduation-cap"></i> Add any school, bootcamp, etc

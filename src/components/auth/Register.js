@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -38,6 +39,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <section className="container wrapper">
+      <Helmet>
+        <title>Devconnector | Register</title>
+      </Helmet>
+
       <h1 className="large text-primary">Sign Up</h1>
       <p className="lead">
         <i className="fas fa-user"></i> Create Your Account

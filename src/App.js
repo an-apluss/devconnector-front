@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Provider } from "react-redux";
 import setAuthToken from "./utils/setAuthToken";
 import { loadUser } from "./actions/auth";
@@ -29,38 +30,44 @@ const App = () => {
   }, []);
 
   return (
-    <Provider store={store}>
-      <Router>
-        <Fragment>
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <Alert />
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/profile/:id" component={Profile} />
-            <Route exact path="/profiles" component={Profiles} />
-            <PrivateRoute exact path="/dashboard" component={Dashboard} />
-            <PrivateRoute
-              exact
-              path="/create-profile"
-              component={CreateProfile}
-            />
-            <PrivateRoute exact path="/edit-profile" component={EditProfile} />
-            <PrivateRoute
-              exact
-              path="/add-experience"
-              component={AddExperience}
-            />
-            <PrivateRoute
-              exact
-              path="/add-education"
-              component={AddEducation}
-            />
-          </Switch>
-        </Fragment>
-      </Router>
-    </Provider>
+    <HelmetProvider>
+      <Helmet>
+        <title>Devconnector</title>
+      </Helmet>
+      
+      <Provider store={store}>
+        <Router>
+          <Fragment>
+            <Navbar />
+            <Route exact path="/" component={Landing} />
+            <Alert />
+            <Switch>
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/profile/:id" component={Profile} />
+              <Route exact path="/profiles" component={Profiles} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute
+                exact
+                path="/create-profile"
+                component={CreateProfile}
+              />
+              <PrivateRoute exact path="/edit-profile" component={EditProfile} />
+              <PrivateRoute
+                exact
+                path="/add-experience"
+                component={AddExperience}
+              />
+              <PrivateRoute
+                exact
+                path="/add-education"
+                component={AddEducation}
+              />
+            </Switch>
+          </Fragment>
+        </Router>
+      </Provider>
+    </HelmetProvider>
   );
 };
 
